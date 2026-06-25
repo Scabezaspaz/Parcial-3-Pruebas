@@ -1,0 +1,45 @@
+<div class="container">
+  <h1>TicketFast — Reserva de Boletos</h1>
+
+  <form (ngSubmit)="confirmarReserva()">
+    <div>
+      <label>Email:</label>
+      <input
+        data-testid="input-email-cliente"
+        type="email"
+        [(ngModel)]="email"
+        name="email"
+      />
+    </div>
+
+    <div>
+      <label>Zona:</label>
+      <select
+        data-testid="select-zona-evento"
+        [(ngModel)]="zona"
+        name="zona"
+      >
+        <option value="VIP">VIP</option>
+        <option value="General">General</option>
+      </select>
+    </div>
+
+    <div>
+      <label>Cantidad de asientos:</label>
+      <input
+        data-testid="input-cantidad-asientos"
+        type="number"
+        [(ngModel)]="cantidad"
+        name="cantidad"
+      />
+    </div>
+
+    <button data-testid="btn-confirmar-reserva" type="submit">
+      Confirmar Reserva
+    </button>
+  </form>
+
+  <div *ngIf="total > 0" data-testid="seccion-resumen-total">
+    Total: {{ total | number:'1.0-0':'es' }}
+  </div>
+</div>
